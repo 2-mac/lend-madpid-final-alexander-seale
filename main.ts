@@ -1,1 +1,1 @@
-scene.setBackgroundColor(0)
+scene.setBackgroundImage(assets.image`Tester`)
