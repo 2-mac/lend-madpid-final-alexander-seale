@@ -18,6 +18,12 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         . . . . . . . . . . . . . . . . 
         `, mySprite, 100, 0)
 })
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, otherSprite) {
+	
+})
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
+	
+})
 let projectile: Sprite = null
 let mySprite: Sprite = null
 scene.setBackgroundImage(assets.image`Tester`)
@@ -58,7 +64,7 @@ let mySprite2 = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
-    `, SpriteKind.Player)
+    `, SpriteKind.Enemy)
 mySprite.setStayInScreen(true)
 mySprite2.setBounceOnWall(true)
 mySprite2.setVelocity(27, -53)
