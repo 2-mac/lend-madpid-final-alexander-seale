@@ -19,12 +19,10 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         `, mySprite, 100, 0)
 })
 sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, otherSprite) {
-	
-})
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
-	
+    mySprite2.destroy(effects.fire, 500)
 })
 let projectile: Sprite = null
+let mySprite2: Sprite = null
 let mySprite: Sprite = null
 scene.setBackgroundImage(assets.image`Tester`)
 mySprite = sprites.create(img`
@@ -47,7 +45,7 @@ mySprite = sprites.create(img`
     `, SpriteKind.Player)
 mySprite.setVelocity(0, 0)
 controller.moveSprite(mySprite)
-let mySprite2 = sprites.create(img`
+mySprite2 = sprites.create(img`
     . 4 4 5 5 5 5 f f f f f f 5 5 . 
     4 4 5 5 f f f f 1 1 1 1 f f 5 4 
     4 2 2 f f 1 1 1 1 1 1 1 1 f 4 4 
