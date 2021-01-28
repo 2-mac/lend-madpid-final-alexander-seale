@@ -18,4 +18,44 @@ let mySprite = sprites.create(img`
     . . . 5 5 5 5 . . 5 5 5 5 . . . 
     `, SpriteKind.Player)
 mySprite.setVelocity(0, 0)
+let projectile = sprites.createProjectileFromSprite(img`
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . 2 2 2 . . . . . . . . . 
+    . . . . . . . . . . 2 2 . . . . 
+    . . 2 2 4 4 4 4 4 . 2 2 . . . . 
+    . . 2 2 4 4 4 5 4 4 . . . . . . 
+    . . . 2 4 4 4 5 5 4 4 . . . . . 
+    . . . . 4 5 5 5 5 4 4 . . . . . 
+    . . . 4 4 4 4 5 5 4 . . . . . . 
+    . 2 . 4 4 . 4 4 5 4 . . . . . . 
+    . 2 . . . 4 . 4 4 4 2 2 . . . . 
+    . . . . 4 4 . . . . . 2 . . . . 
+    . . . . . . . 2 . . . . . . . . 
+    . . . . . . . 2 . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    `, mySprite, 50, 50)
 controller.moveSprite(mySprite)
+let mySprite2 = sprites.create(img`
+    . 4 4 5 5 5 5 f f f f f f 5 5 . 
+    4 4 5 5 f f f f 1 1 1 1 f f 5 4 
+    4 2 2 f f 1 1 1 1 1 1 1 1 f 4 4 
+    . 4 2 f 1 1 f f f 1 f f f f 5 5 
+    2 2 5 f 1 1 f f f 1 f f f 1 f 5 
+    4 4 5 f 1 1 f f f 1 f f f 1 f 5 
+    . 4 5 f f 1 1 1 1 1 1 1 1 f f 5 
+    . . 5 5 f f 1 1 1 1 1 1 f f 5 4 
+    . . . 5 5 f 1 f 1 f 1 f f 5 5 4 
+    . . . . . f f f f f f f f . . . 
+    . . . . . f 1 f 1 f 1 f f . . . 
+    . . . . . f 1 1 1 1 1 1 f . . . 
+    . . . . . f f f f f f f f . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    `, SpriteKind.Player)
+mySprite.setStayInScreen(true)
+mySprite2.setBounceOnWall(true)
+mySprite2.setVelocity(27, -53)
+info.setLife(3)
