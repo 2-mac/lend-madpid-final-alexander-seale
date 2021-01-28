@@ -4,6 +4,12 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "Tester"
     },
+    "image2": {
+        "data": "hwQQABAAAAAAAN0NAAAAAN3d3d3d3d0N/Q3f3d3d3d39/fHd3d3/3/39Ed/d/SHf/f//3939IfHd3//f3f0h8d3/H9///SHx3f39///9IfHd/f3///0h8d3/H9///SHx3d//3939IfH9///f3f0h3/39Ed/d3f/f/f3x3d3d3d393d/d3d3d3Q==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "C"
+    },
+    "image3": "hwQQABAAAAAAAAAAAAAAAADw/w8A8P8AAPAi/wDwAAAA8CLy////AADw8v8fEfEAAPD/L////wBQVS8iHxHxAFBV/yL///8AAFXw/x8R8QBQVf8i////AFBVLyIfEfEAAPD/L////wAA8PL/HxHxAADwIvL///8AAPAi/wDwAAAA8P8PAPD/AA==",
     "*": {
         "mimeType": "image/x-mkcd-f4",
         "dataEncoding": "base64",
