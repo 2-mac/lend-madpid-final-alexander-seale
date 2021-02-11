@@ -38,19 +38,57 @@ sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Player, function (sprite, otherSp
         . . d d d d d d d d d d d d . . 
         `)
     mySprite.destroy(effects.ashes, 500)
+    info.changeLifeBy(-1)
 })
 sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, otherSprite) {
     mySprite2.destroy(effects.fire, 500)
-    mySprite3.destroy()
-    mySprite4.destroy()
-    mySprite5.destroy()
-    mySprite6.destroy()
+    info.changeScoreBy(1)
+    mySprite3 = sprites.create(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . 1 1 1 1 1 1 . . . . . . 
+        . . 1 1 1 1 1 1 1 1 1 1 1 . . . 
+        . 1 1 1 1 1 1 1 1 1 1 1 1 1 . . 
+        . 1 1 f f f 1 1 1 f f f 1 1 . . 
+        . 1 1 f f f 1 1 1 f f f 1 1 . . 
+        . 1 1 f f f 1 1 1 f f f 1 1 . . 
+        . 1 1 1 1 1 1 1 1 1 1 1 1 1 . . 
+        . 1 1 1 1 1 1 1 1 1 1 1 1 1 . . 
+        . . . 1 1 f 1 1 f 1 1 1 . . . . 
+        . . . 1 1 f 1 1 f 1 1 f . . . . 
+        . . . f f f f f f f f f . . . . 
+        . . . 1 1 f 1 1 f 1 1 f . . . . 
+        . . . 1 1 1 1 1 1 1 1 f . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, SpriteKind.Enemy)
+    mySprite3.setVelocity(27, -53)
+    mySprite3.setPosition(21, 120)
+    mySprite3.setBounceOnWall(true)
+    mySprite4 = sprites.create(img`
+        . . . . . . . . . . . . . . . . 
+        . . 1 1 1 1 1 1 1 1 1 1 1 . . . 
+        . 1 1 1 1 1 1 1 1 1 1 1 1 1 . . 
+        . 1 1 f f f f 1 1 1 f f f 1 . . 
+        . 1 1 f f f f f 1 f f f f 1 . . 
+        . 1 1 f f f f f 1 1 f f f 1 . . 
+        . . 1 f f f f 1 1 1 f f f 1 . . 
+        . . 1 1 1 1 1 1 1 1 1 1 1 1 . . 
+        . . . 1 1 1 1 1 1 1 1 1 1 . . . 
+        . . . . 1 1 f 1 1 1 1 1 . . . . 
+        . . . . 1 1 f 1 1 f 1 1 . . . . 
+        . . . . f f f f f f f f . . . . 
+        . . . . 1 1 f 1 1 f 1 1 . . . . 
+        . . . . 1 1 1 1 1 1 1 1 . . . . 
+        . . . . . 1 1 1 1 1 . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, SpriteKind.Enemy)
+    mySprite4.setPosition(0, 0)
+    mySprite4.setVelocity(27, -53)
+    mySprite4.setBounceOnWall(true)
 })
-let projectile: Sprite = null
-let mySprite6: Sprite = null
-let mySprite5: Sprite = null
 let mySprite4: Sprite = null
 let mySprite3: Sprite = null
+let projectile: Sprite = null
 let mySprite2: Sprite = null
 let mySprite: Sprite = null
 scene.setBackgroundImage(assets.image`Tester`)
@@ -72,7 +110,7 @@ mySprite = sprites.create(img`
     . . . . d d d . . d d d . . . . 
     . . . 5 5 5 5 . . 5 5 5 5 . . . 
     `, SpriteKind.Player)
-mySprite.setVelocity(82, 0)
+mySprite.setVelocity(0, 0)
 controller.moveSprite(mySprite)
 mySprite2 = sprites.create(img`
     . 4 4 5 5 5 5 f f f f f f 5 5 . 
@@ -96,87 +134,3 @@ mySprite2.setBounceOnWall(true)
 mySprite2.setVelocity(27, -53)
 info.setLife(3)
 mySprite2.setPosition(34, 0)
-mySprite3 = sprites.create(img`
-    . . . . . . . . . . . . . . . . 
-    . . . . 1 1 1 1 1 1 . . . . . . 
-    . . 1 1 1 1 1 1 1 1 1 1 1 . . . 
-    . 1 1 1 1 1 1 1 1 1 1 1 1 1 . . 
-    . 1 1 f f f 1 1 1 f f f 1 1 . . 
-    . 1 1 f f f 1 1 1 f f f 1 1 . . 
-    . 1 1 f f f 1 1 1 f f f 1 1 . . 
-    . 1 1 1 1 1 1 1 1 1 1 1 1 1 . . 
-    . 1 1 1 1 1 1 1 1 1 1 1 1 1 . . 
-    . . . 1 1 f 1 1 f 1 1 1 . . . . 
-    . . . 1 1 f 1 1 f 1 1 f . . . . 
-    . . . f f f f f f f f f . . . . 
-    . . . 1 1 f 1 1 f 1 1 f . . . . 
-    . . . 1 1 1 1 1 1 1 1 f . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    `, SpriteKind.Enemy)
-mySprite4 = sprites.create(img`
-    . . . . . . . . . . . . . . . . 
-    . . 1 1 1 1 1 1 1 1 1 1 1 . . . 
-    . 1 1 1 1 1 1 1 1 1 1 1 1 1 . . 
-    . 1 1 f f f f 1 1 1 f f f 1 . . 
-    . 1 1 f f f f f 1 f f f f 1 . . 
-    . 1 1 f f f f f 1 1 f f f 1 . . 
-    . . 1 f f f f 1 1 1 f f f 1 . . 
-    . . 1 1 1 1 1 1 1 1 1 1 1 1 . . 
-    . . . 1 1 1 1 1 1 1 1 1 1 . . . 
-    . . . . 1 1 f 1 1 1 1 1 . . . . 
-    . . . . 1 1 f 1 1 f 1 1 . . . . 
-    . . . . f f f f f f f f . . . . 
-    . . . . 1 1 f 1 1 f 1 1 . . . . 
-    . . . . 1 1 1 1 1 1 1 1 . . . . 
-    . . . . . 1 1 1 1 1 . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    `, SpriteKind.Enemy)
-mySprite5 = sprites.create(img`
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . 1 1 1 1 1 1 1 . . . . 
-    . . . . 1 1 1 1 1 1 1 1 1 1 . . 
-    . . . . 1 1 f f 1 1 f f 1 1 . . 
-    . . . 1 1 1 f f f 1 f f f 1 . . 
-    . . . . 1 1 f f f 1 f f f 1 . . 
-    . . . . 1 1 1 1 1 1 1 1 1 . . . 
-    . . . . . 1 1 1 1 1 1 1 1 . . . 
-    . . . . . . 1 f 1 1 f 1 . . . . 
-    . . . . . . f f f f f f . . . . 
-    . . . . . . 1 f 1 1 f 1 . . . . 
-    . . . . . . . 1 1 1 1 1 . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    `, SpriteKind.Food)
-mySprite6 = sprites.create(img`
-    . . . . . . . . . . . . . . . . 
-    . . . . . . 1 1 1 1 1 1 1 . . . 
-    . . . . 1 1 1 1 1 1 1 1 1 1 1 . 
-    . . . 1 1 1 1 1 1 1 f f f 1 1 . 
-    . . . 1 f f f f 1 f 1 1 f f 1 . 
-    . . 1 f 1 1 f f 1 f 1 1 f f 1 . 
-    . . 1 f 1 1 f f 1 1 f f f 1 1 . 
-    . . 1 f f f f 1 1 1 f f f 1 1 . 
-    . . 1 1 1 1 1 1 1 1 1 1 1 1 . . 
-    . . . 1 1 1 1 1 1 1 1 1 1 1 . . 
-    . . . 1 1 1 1 1 1 1 1 1 1 . . . 
-    . . . . 1 1 1 f 1 f 1 1 . . . . 
-    . . . . . f f f f f f f . . . . 
-    . . . . . . 1 f 1 1 f . . . . . 
-    . . . . . . 1 f 1 1 f . . . . . 
-    . . . . . . . . . . . . . . . . 
-    `, SpriteKind.Enemy)
-mySprite3.setVelocity(27, -53)
-mySprite4.setVelocity(27, -53)
-mySprite5.setVelocity(27, -52)
-mySprite6.setVelocity(27, -53)
-mySprite3.setPosition(21, 120)
-mySprite4.setPosition(0, 0)
-mySprite5.setPosition(126, 25)
-mySprite6.setPosition(111, 0)
-mySprite3.setBounceOnWall(true)
-mySprite4.setBounceOnWall(true)
-mySprite5.setBounceOnWall(true)
-mySprite6.setBounceOnWall(true)
